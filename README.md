@@ -20,7 +20,7 @@
 
 ### Scene:
 
-![image](https://user-images.githubusercontent.com/62274988/191505320-4128ae1c-8328-441c-8926-d2e7c3f14f4c.png)
+![image](https://user-images.githubusercontent.com/62274988/197394354-f9b4fd1a-1d90-4a86-8cb0-331a59b18525.png)
 
 
 **主要场景：**
