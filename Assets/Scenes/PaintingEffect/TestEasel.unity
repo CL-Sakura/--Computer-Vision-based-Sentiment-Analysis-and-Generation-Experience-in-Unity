@@ -511,6 +511,7 @@ GameObject:
   - component: {fileID: 8502188395457498477}
   - component: {fileID: 4520664640117356461}
   - component: {fileID: 8502188395457498478}
+  - component: {fileID: 8502188395457498479}
   m_Layer: 0
   m_Name: stand
   m_TagString: Untagged
@@ -747,3 +748,16 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 1019386347547055254, guid: 07653943a456e194eabdb9ebafcb5e07, type: 3}
+--- !u!114 &8502188395457498479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 198745884848246184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c3ea44eef20b0b4396ebe666c9a6eeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  extendsIslandOffset: 1
