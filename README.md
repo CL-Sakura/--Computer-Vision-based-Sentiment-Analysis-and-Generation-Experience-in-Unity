@@ -1,4 +1,4 @@
-# MulitipyScene_URP_PICODev
+# 绘意-Computer Vision-based Sentiment Analysis and Generation Experience in Unity
 
 ## Description
 本项目是基于URP渲染管线开发的VR场景
