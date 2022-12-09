@@ -13,7 +13,8 @@ public class ApiHandler : MonoBehaviour
     public string Keywords;
     public string id;
     private string url;
-    
+
+    [SerializeField] private TMP_InputField inputField;
     
     
     [ContextMenu("Text Get")]
@@ -45,7 +46,8 @@ public class ApiHandler : MonoBehaviour
         //var url = "http://localhost:3000/search?keywords=" + System.Web.HttpUtility.UrlEncode(Keywords).ToUpper() + "&type=1000";
         //url = System.Web.HttpUtility.UrlDecode(url);
 
-        var url = "http://localhost:3000/search?keywords=" + Keywords + "&type=1000";
+        //var url = "http://localhost:3000/search?keywords=" + Keywords + "&type=1000&limit=10";
+        var url = "http://localhost:3000/search?keywords=满意&type=1000&limit=10";
         
         Debug.Log($"{url}");
 
@@ -84,12 +86,13 @@ public class ApiHandler : MonoBehaviour
         var result = await httpClient.Get<SongInfoData>(url);
         text.text = "";
 
-        
+        int counter = 0;
         foreach (Song VARIABLE in result.songs)
         {
+            counter++;
             text.text +=
-                "id: " + VARIABLE.id + "\n" +
-                "name: " + VARIABLE.name + "\n"
+                "Song id: " + VARIABLE.id + "\n" +
+                +counter+ ". " + VARIABLE.name + "\n"
                 + "\n";
 
         }
@@ -99,9 +102,16 @@ public class ApiHandler : MonoBehaviour
     
     
     
-    public void GetJson()
+    public void searchButton()
     {
+        id = inputField.text;
+        GetSong();
 
+    }
+    
+    public void refreshButton()
+    {
+        GetPlayList();
     }
 
     private void Start()

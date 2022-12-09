@@ -2,13 +2,9 @@ using Cinemachine;
 using TMPro;
 using UnityEngine;
 
-
-
-public class InteractionManager : MonoBehaviour
+public class WebServiceInteractionManager : MonoBehaviour
 {
-
-    
-
+ 
     [Header("Camera Switcher")]
     [SerializeField] private CinemachineVirtualCamera PlayerCamera;
     [SerializeField] private CinemachineVirtualCamera CanvasCamera;
@@ -22,8 +18,9 @@ public class InteractionManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI interactionText;
 
     [SerializeField] private GameObject canvasUI;
-    public bool isEButtonHit = false;
- 
+    private bool isWebEButtonHit = false;
+
+    private bool hitMediaPlayer;
     
 
     
@@ -45,7 +42,7 @@ public class InteractionManager : MonoBehaviour
     public void Update()
     {
         InteractionRay();
-        canvasUI.SetActive(isEButtonHit);
+        canvasUI.SetActive(isWebEButtonHit);
     }
 
 
@@ -67,28 +64,28 @@ public class InteractionManager : MonoBehaviour
         Ray ray = MainCamera.ViewportPointToRay(Vector3.one / 2f);
         RaycastHit hit;
 
-        bool hitSomething = false;
+        hitMediaPlayer = false;
 
-        //ÊÇ·ñ±»×¼ĞÇÑ¡ÖĞ£¬Ñ¡ÖĞÔòÏÔÊ¾
+        //æ˜¯å¦è¢«å‡†æ˜Ÿé€‰ä¸­ï¼Œé€‰ä¸­åˆ™æ˜¾ç¤º
         if (Physics.Raycast(ray, out hit, interactionDistance))
         {
-            IInteractable interactable = hit.collider.GetComponent<IInteractable>();
+            IWebInteractable interactable = hit.collider.GetComponent<IWebInteractable>();
             if (interactable != null)
             {
-                hitSomething = true;
+                hitMediaPlayer = true;
                 interactionText.text = interactable.GetDescription();
 
-                //²é¿´½»»¥¶ÔÏóÊ±°´ÏÂE¼ü½øĞĞ½»»¥£º×ª»»¾µÍ·ÒÔ¼°µ÷ÓÃInteract()·½·¨
+                //æŸ¥çœ‹äº¤äº’å¯¹è±¡æ—¶æŒ‰ä¸‹Eé”®è¿›è¡Œäº¤äº’ï¼šè½¬æ¢é•œå¤´ä»¥åŠè°ƒç”¨Interact()æ–¹æ³•
                 if (Input.GetKeyDown(KeyCode.E))
                 {                   
                     if (CameraSwitcher.IsActiveCamera(PlayerCamera))
                     {
                         CameraSwitcher.SwitchCamera(CanvasCamera);
-                        // ½âËøÊó±ê
+                        // è§£é”é¼ æ ‡
                         UnlockMouse();
                         
-                        //½âËøUI
-                        isEButtonHit = true;
+                        //è§£é”UI
+                        isWebEButtonHit = true;
                     }
 
                     if (CameraSwitcher.IsActiveCamera(CanvasCamera))
@@ -106,22 +103,18 @@ public class InteractionManager : MonoBehaviour
             if (CameraSwitcher.IsActiveCamera(CanvasCamera))
             {
                 CameraSwitcher.SwitchCamera(PlayerCamera);
-                // Ëø¶¨Êó±ê
+                // é”å®šé¼ æ ‡
                 LockMouse();
-                // Ëø¶¨UI
-                isEButtonHit = false;
+                // é”å®šUI
+                isWebEButtonHit = false;
             }
         }
 
 
 
-        interactionUI.SetActive(hitSomething);
+        interactionUI.SetActive(hitMediaPlayer);
 
 
     }
-
-
-
-
 
 }

@@ -24,6 +24,7 @@ public class ImageToEmotionClassifier : MonoBehaviour
     };
 
     public int LabelIndex;
+    public string result;
     const int IMAGE_SIZE = 256;
 
     private Texture2D texture;
@@ -125,7 +126,8 @@ public class ImageToEmotionClassifier : MonoBehaviour
         prediction.SetPrediction(AdjustScores);
         
         LabelIndex = Array.IndexOf(AdjustScores, AdjustScores.Max());
-        
+
+        result = LabelMap[LabelIndex];       
         Debug.Log($"Result: {LabelMap[LabelIndex]}");
         
         inputX.Dispose();
@@ -179,16 +181,12 @@ public class ImageToEmotionClassifier : MonoBehaviour
     
     private void Update()
     {
+        /*
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            texture = toTexture2D(renderTexture);
-            Rect rect = new Rect(0, 0, texture.width, texture.height);
-            byte[] byteArray = texture.EncodeToPNG();
-            System.IO.File.WriteAllBytes("Assets/Materials/MarchineLearning" + "/CameraScreenShot.png", byteArray);
-            Debug.Log("Save CameraScreenShot.png");
-            
-            ExecuteModel();
+            GetResult();
         }
+        */
     }
     
     
@@ -201,6 +199,20 @@ public class ImageToEmotionClassifier : MonoBehaviour
         tex.Apply();
         return tex;
     }
+
+
+    public void GetResult()
+    {
+        texture = toTexture2D(renderTexture);
+        Rect rect = new Rect(0, 0, texture.width, texture.height);
+        byte[] byteArray = texture.EncodeToPNG();
+        System.IO.File.WriteAllBytes("Assets/Materials/MarchineLearning" + "/CameraScreenShot.png", byteArray);
+        Debug.Log("Save CameraScreenShot.png");
+            
+        ExecuteModel();
+    }
+    
+    
     
     
     
