@@ -51,7 +51,7 @@
 
 
 
-## Script:
+## Scripts
 
 
 ![image](https://user-images.githubusercontent.com/62274988/207063821-775ee591-a337-48c3-87ab-ab6e726cfd71.png)
