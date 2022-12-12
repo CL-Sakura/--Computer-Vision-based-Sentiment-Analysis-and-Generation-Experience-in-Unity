@@ -7,7 +7,22 @@
 
 
 **主要场景：**
-![image](https://user-images.githubusercontent.com/62274988/191504989-93c90204-2ef2-4f6b-952c-82088b11b5c1.png)
+![image](https://user-images.githubusercontent.com/62274988/207063299-34145f7a-c645-46ac-ae5a-702b2fd414ce.png)
+
+## **Asset**
+
+| Asset Type | Explanation                                                  |
+| ---------- | ------------------------------------------------------------ |
+| Fonts      | This folder contains the fonts used in the project.   此文件夹包含项目中使用的字体。 |
+| Materials  | These assets contain the materials used in the development process.这些资产包含了开发过程中使用的材质。 |
+| MLModels   | The ONNX model used for machine learning.机器学习所用到的ONNX模型。 |
+| Prefabs    | These are reusable GameObjects with prebuilt Components.Add them to a scene to build.这些是预制件游戏对象，可以直接将它们添加到要构建的场景中。 |
+| Scripts    | All user-developed code for gameplay appears here. 所有整理后的项目代码都在这里。 |
+| Settings   | These assets store render pipeline settings,such as UniversalRender Pipeline (URP).这些资产存储渲染管道设置：UniversalRender管道(URP)。 |
+| Shaders    | These programs run on the GPU as part of thegraphics pipeline. 这些Shader作为图形管道的一部分在GPU上运行。 |
+| Scenes     | Runnable Unity scenarios that store test cases generated during development and final integration scenarios. 可运行的Unity场景，存储开发中产生的测试案例以及最后的整合场景。 |
+| Textures   | lmage files can consist of texture files for materials andsurfacing, UI overlay elements for user interface, andlightmaps to store lighting information.图像文件:由材质和表面处理的纹理文件、用户界面的UI覆盖元素以及用于存储照明信息的光图组成。 |
+| ThirdParty | Assets from external sources, development plug-ins, etc. 来自外部的资产、开发包等。 |
 
 
 
@@ -20,37 +35,34 @@
 
 ### Scene:
 
-![image](https://user-images.githubusercontent.com/62274988/197394354-f9b4fd1a-1d90-4a86-8cb0-331a59b18525.png)
+![image](https://user-images.githubusercontent.com/62274988/207064824-90c271c0-abbb-4c2f-829c-3f6406f7b8bf.png)
+
+> **其中，Final文件夹包含最终呈现场景，其他文件夹包含开发中的测试场景。**
 
 
-**主要场景：**
-Assets\Scenes\Upload2PICO
 
-
-**音乐生成器：**
-Assets\Scenes\MediaPlayer
-
-
-### Package:
-- PICO UnityXR Integration SDK v207
-- ProBuilder
-- Universal RP
+- InteractionWithCameraSwitcher：测试交互以及相机切换场景
+- MachineLearning：测试机器学习场景
+- MediaPlayer：测试媒体播放器场景
+- PaintingEffect：测试绘画系统场景
+- Room：房间布置场景
+- WebRequest：测试WebServe以及API调用场景
 
 
 
 
 ## Script:
 
-### ScriptSetting:
 
-![image](https://user-images.githubusercontent.com/62274988/191508969-12d18663-27ba-43ef-8f34-844b0eaed966.png)
-
+![image](https://user-images.githubusercontent.com/62274988/207063821-775ee591-a337-48c3-87ab-ab6e726cfd71.png)
 
 
-
-
-
-
+- InteractionWithCameraSwitcher: UI交互以及相机切换相关代码
+- MarchineLearning: 机器学习相关代码
+- MediaPlayer: 媒体播放器相关代码
+- Paintable: 绘画系统相关代码
+- Utils: 开发工具代码
+- WebRequest: Web Service以及API调用相关代码
 
 
 
